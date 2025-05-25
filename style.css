@@ -1,0 +1,83 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: white;
+}
+header {
+ background: linear-gradient(to right, #0a0a0b, #240231);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+nav ul li {
+  display: inline;
+  margin: 0 1rem;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+img {
+  max-width: 30%;
+  height: auto;
+  border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(222, 12, 254, 0.2);
+}
+section {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+.project {
+  background: linear-gradient(to right, rgba(40, 0, 61, 0.5), rgba(3, 0, 4, 0.5));
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 5px solid #3c0144;
+}
+form input,
+form textarea {
+    color: #ffffff;
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: rgb(43, 4, 80);
+}
+form button {
+  background-color: #2f033d;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #39015c;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(to right, #0a0a0b, #240231);
+}
+
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+}

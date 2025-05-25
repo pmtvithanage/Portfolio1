@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vithanage's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<canvas id="starfield"></canvas>
+  <header>
+    <h1>P.M.T. Vithanage</h1>
+    <p>Computer Science Undergraduate</p>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="image.png" alt="Profile Picture" />
+    <p>I am a passionate computer science student who loves coding and building web applications. Currently learning full-stack development.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Student Management System</h3>
+      <p>A PHP & MySQL project to manage students' data, including adding, updating, and deleting records.</p>
+    </div>
+    <div class="project">
+      <h3>To-Do App</h3>
+      <p>A JavaScript app to manage daily tasks with localStorage support.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p id="formMsg"></p>
+  </section>
+
+  <footer>
+    <p>© 2025 P.M.T. Vithanage</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
