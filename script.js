@@ -204,7 +204,10 @@ initStars();
 animate();
 
 // Update copyright year automatically
-document.getElementById('current-year').textContent = new Date().getFullYear();
+const yearElement = document.getElementById('current-year');
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
 
 // Smooth scrolling for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -222,27 +225,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Form submission - Send to WhatsApp
 const form = document.querySelector('.contact-form');
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = form.querySelector('input[type="text"]').value;
-    const email = form.querySelector('input[type="email"]').value;
-    const message = form.querySelector('textarea').value;
-    
-    // Format message for WhatsApp
-    const whatsappMessage = `*New Portfolio Contact*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A%0A*Message:*%0A${encodeURIComponent(message)}`;
-    
-    // WhatsApp number (without + or spaces)
-    const phoneNumber = '94759721372';
-    
-    // Open WhatsApp with pre-filled message
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-    window.open(whatsappURL, '_blank');
-    
-    // Reset form after sending
-    form.reset();
-});
+if (form) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const name = form.querySelector('input[type="text"]').value;
+        const email = form.querySelector('input[type="email"]').value;
+        const message = form.querySelector('textarea').value;
+        
+        // Format message for WhatsApp
+        const whatsappMessage = `*New Portfolio Contact*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A%0A*Message:*%0A${encodeURIComponent(message)}`;
+        
+        // WhatsApp number (without + or spaces)
+        const phoneNumber = '94759721372';
+        
+        // Open WhatsApp with pre-filled message
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+        window.open(whatsappURL, '_blank');
+        
+        // Reset form after sending
+        form.reset();
+    });
+}
 
 // Parallax effect on scroll
 let scrollY = 0;
@@ -366,4 +371,94 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initProjectsCarousel);
 } else {
     initProjectsCarousel();
+}
+// Project Detail Page Slideshow
+let slideIndex = 0;
+let slideInterval;
+
+function initSlideshow() {
+    const slideshowContainer = document.querySelector('.slideshow-container');
+    console.log('Initializing slideshow...', slideshowContainer);
+    
+    if (!slideshowContainer) {
+        console.log('No slideshow container found');
+        return;
+    }
+    
+    const slides = document.querySelectorAll('.slide');
+    console.log('Found slides:', slides.length);
+    
+    if (slides.length === 0) return;
+    
+    // Make sure first slide is active
+    slides[0].classList.add('active');
+    const dots = document.querySelectorAll('.dot');
+    if (dots.length > 0) dots[0].classList.add('active');
+    
+    // Start auto-sliding
+    startSlideshowAutoSlide();
+    console.log('Slideshow started with interval');
+}
+
+function showSlide(n) {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (slides.length === 0) return;
+    
+    // Loop back to start or end
+    if (n >= slides.length) {
+        slideIndex = 0;
+    }
+    if (n < 0) {
+        slideIndex = slides.length - 1;
+    }
+    
+    console.log('Showing slide:', slideIndex);
+    
+    // Remove active class from all slides and dots
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    dots.forEach(dot => {
+        dot.classList.remove('active');
+    });
+    
+    // Add active class to current slide and dot
+    slides[slideIndex].classList.add('active');
+    if (dots[slideIndex]) {
+        dots[slideIndex].classList.add('active');
+    }
+}
+
+function nextSlide() {
+    slideIndex++;
+    showSlide(slideIndex);
+}
+
+function currentSlide(n) {
+    slideIndex = n;
+    showSlide(slideIndex);
+    resetSlideshowAutoSlide();
+}
+
+function startSlideshowAutoSlide() {
+    // Clear any existing interval first
+    if (slideInterval) {
+        clearInterval(slideInterval);
+    }
+    slideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+    console.log('Auto-slide interval set');
+}
+
+function resetSlideshowAutoSlide() {
+    clearInterval(slideInterval);
+    startSlideshowAutoSlide();
+}
+
+// Initialize slideshow when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSlideshow);
+} else {
+    initSlideshow();
 }
