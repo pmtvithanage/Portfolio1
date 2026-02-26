@@ -1,58 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vithanage's Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Galaxy Theme</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<canvas id="starfield"></canvas>
-  <header>
-    <h1>P.M.T. Vithanage</h1>
-    <p>Computer Science Undergraduate</p>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <canvas id="galaxy"></canvas>
+    
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">Portfolio</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <img src="image.png" alt="Profile Picture" />
-    <p>I am a passionate computer science student who loves coding and building web applications. Currently learning full-stack development.</p>
-  </section>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="profile-image-container">
+                    <div class="profile-image">
+                        <img src="img/img.png" alt="Profile" id="profileImg">
+                    </div>
+                </div>
+                <h1 class="glitch" data-text="Welcome to My Universe">Welcome to My Universe</h1>
+                <p class="subtitle">Full Stack Developer | Designer | Creator</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Student Management System</h3>
-      <p>A PHP & MySQL project to manage students' data, including adding, updating, and deleting records.</p>
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <span class="material-symbols-outlined card-icon">code</span>
+                    <h3>Developer</h3>
+                    <p>Building responsive and dynamic web applications with modern technologies.</p>
+                </div>
+                <div class="about-card">
+                    <span class="material-symbols-outlined card-icon">palette</span>
+                    <h3>Designer</h3>
+                    <p>Creating beautiful user interfaces with attention to detail and user experience.</p>
+                </div>
+                <div class="about-card">
+                    <span class="material-symbols-outlined card-icon">rocket_launch</span>
+                    <h3>Innovator</h3>
+                    <p>Always exploring new technologies and pushing the boundaries of what's possible.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-carousel-container">
+                <button class="carousel-arrow carousel-arrow-left" id="projectsArrowLeft">
+                    <span>&#8249;</span>
+                </button>
+                <div class="projects-carousel-wrapper">
+                    <div class="projects-grid">
+                        <a href="projects/redforce.html" class="project-card-link">
+                            <div class="project-card">
+                                <img src="img/redforce/img1.png" alt="E-Commerce Platform" class="project-image">
+                                <h3>Red Force Security Officers Management System</h3>
+                                <p>A comprehensive security personnel management platform featuring real-time officer tracking, shift scheduling, incident reporting, and automated patrol route management for enhanced security operations.</p>
+                                <div class="tags">
+                                    <span class="tag">PHP</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">CSS</span>
+                                    <span class="tag">HTML</span>
+                                    <span class="tag">MYSQL</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="projects/project1.html" class="project-card-link">
+                            <div class="project-card">
+                                <img src="img/project1/img1.png" alt="E-Commerce Platform" class="project-image">
+                                <h3>E-Commerce Platform</h3>
+                                <p>A full-stack online shopping platform with payment integration and real-time inventory management.</p>
+                                <div class="tags">
+                                    <span class="tag">PHP</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">CSS</span>
+                                    <span class="tag">HTML</span>
+                                    <span class="tag">MongoDB</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="projects/project2.html" class="project-card-link">
+                            <div class="project-card">
+                                <img src="https://via.placeholder.com/400x250/764ba2/ffffff?text=Social+Media" alt="Social Media App" class="project-image">
+                                <h3>Social Media App</h3>
+                                <p>A modern social networking application with real-time messaging and content sharing features.</p>
+                                <div class="tags">
+                                    <span class="tag">Vue.js</span>
+                                    <span class="tag">Firebase</span>
+                                    <span class="tag">WebSocket</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="projects/project3.html" class="project-card-link">
+                            <div class="project-card">
+                                <img src="https://via.placeholder.com/400x250/f093fb/ffffff?text=Game+Engine" alt="Game Engine" class="project-image">
+                                <h3>Game Engine</h3>
+                                <p>A lightweight 2D game engine built with JavaScript and WebGL for browser-based games.</p>
+                                <div class="tags">
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">WebGL</span>
+                                    <span class="tag">Canvas</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="projects/project4.html" class="project-card-link">
+                            <div class="project-card">
+                                <img src="https://via.placeholder.com/400x250/4facfe/ffffff?text=AI+Assistant" alt="AI Assistant" class="project-image">
+                                <h3>AI Assistant</h3>
+                                <p>An intelligent chatbot powered by machine learning for customer support automation.</p>
+                                <div class="tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">TensorFlow</span>
+                                    <span class="tag">NLP</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <button class="carousel-arrow carousel-arrow-right" id="projectsArrowRight">
+                    <span>&#8250;</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="material-symbols-outlined contact-icon">email</span>
+                        <span>pmihirangaa321@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-symbols-outlined contact-icon">public</span>
+                        <span>Available Worldwide</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">GitHub</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; <span id="current-year"></span> My Portfolio. All rights reserved.</p>
+        </footer>
     </div>
-    <div class="project">
-      <h3>To-Do App</h3>
-      <p>A JavaScript app to manage daily tasks with localStorage support.</p>
-    </div>
-  </section>
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <form id="contactForm">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
-      <textarea id="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-    <p id="formMsg"></p>
-  </section>
-
-  <footer>
-    <p>© 2025 P.M.T. Vithanage</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media App - Project Details</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <canvas id="galaxy"></canvas>
+    
+    <div class="container">
+        <div class="project-detail">
+            <a href="../index.html#projects" class="back-btn">← Back to Projects</a>
+            
+            <div class="project-header">
+                <h1>Social Media App</h1>
+                <div class="tech-stack">
+                    <span class="tech-item">Vue.js</span>
+                    <span class="tech-item">Firebase</span>
+                    <span class="tech-item">WebSocket</span>
+                    <span class="tech-item">Vuex</span>
+                    <span class="tech-item">Cloud Functions</span>
+                </div>
+            </div>
+            
+            <img src="https://via.placeholder.com/1200x600/764ba2/ffffff?text=Social+Media+App" alt="Social Media App" class="project-main-image">
+            
+            <div class="project-content">
+                <h2>Project Overview</h2>
+                <p>A modern social networking platform that enables users to connect, share content, and communicate in real-time. Built with a focus on performance and user experience, this application provides seamless social interaction across devices.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li>User profiles with customizable settings</li>
+                    <li>Post creation with image and video uploads</li>
+                    <li>Real-time messaging system with WebSocket</li>
+                    <li>Like, comment, and share functionality</li>
+                    <li>News feed with intelligent content filtering</li>
+                    <li>Friend requests and connections</li>
+                    <li>Notification system for updates</li>
+                    <li>Story feature with 24-hour expiration</li>
+                    <li>Privacy controls and content moderation</li>
+                </ul>
+                
+                <h2>Technical Implementation</h2>
+                <p>The application leverages Vue.js for a reactive frontend experience, with Vuex managing the application state. Firebase provides backend services including authentication, real-time database, and cloud storage. WebSocket connections enable instant messaging and live updates.</p>
+                
+                <h2>Challenges & Solutions</h2>
+                <p>Implementing real-time messaging at scale required careful optimization of WebSocket connections and message queuing. We implemented connection pooling and efficient message batching to handle thousands of concurrent chat sessions.</p>
+                
+                <h2>Results</h2>
+                <p>The app reached 10,000 active users within the first month, with an average session duration of 25 minutes. Real-time message delivery averages under 100ms latency, providing a smooth communication experience.</p>
+            </div>
+            
+            <div class="project-links">
+                <a href="#" class="project-link-btn">View Live Demo</a>
+                <a href="#" class="project-link-btn">View Source Code</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>

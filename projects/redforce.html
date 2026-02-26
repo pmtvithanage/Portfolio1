@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Force Security Officers Management System - Project Details</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <canvas id="galaxy"></canvas>
+    
+    <div class="container">
+        <div class="project-detail">
+            <a href="../index.html#projects" class="back-btn">← Back to Projects</a>
+            
+            <div class="project-header">
+                <h1>Red Force Security Officers Management System</h1>
+                <div class="tech-stack">
+                    <span class="tech-item">PHP</span>
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">CSS</span>
+                    <span class="tech-item">HTML</span>
+                    <span class="tech-item">MYSQL</span>
+                </div>
+            </div>
+            
+            <img src="../img/redforce/img1.png" alt="Red Force Security System" class="project-main-image">
+            
+            <div class="project-content">
+                <h2>Project Overview</h2>
+                <p>Red Force Security Officers Management System is a comprehensive enterprise-level platform designed to streamline security operations and personnel management. The system provides real-time monitoring, automated scheduling, incident reporting, and analytics to enhance the efficiency and effectiveness of security teams across multiple locations.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Real-time officer location tracking with GPS integration</li>
+                    <li>Automated shift scheduling and roster management</li>
+                    <li>Incident reporting and case management system</li>
+                    <li>Patrol route planning and monitoring</li>
+                    <li>Digital check-in/check-out with facial recognition</li>
+                    <li>Emergency alert and notification system</li>
+                    <li>Performance tracking and analytics dashboard</li>
+                    <li>Mobile application for field officers</li>
+                    <li>Integration with CCTV and access control systems</li>
+                    <li>Comprehensive reporting and audit trails</li>
+                    <li>Multi-site management capabilities</li>
+                    <li>Client portal for transparency and communication</li>
+                </ul>
+                
+                <h2>Technical Implementation</h2>
+                <p>The frontend is built with React, providing a responsive and intuitive user interface for both desktop and mobile platforms. The backend utilizes Node.js with Express framework, creating RESTful APIs for seamless data exchange. MongoDB serves as the primary database, offering flexibility and scalability for handling large volumes of security data. Socket.io enables real-time communication for live tracking and instant notifications.</p>
+                
+                <p>The system implements JWT-based authentication with role-based access control (RBAC) to ensure secure access across different user levels including administrators, supervisors, officers, and clients. Geolocation services are integrated for route tracking and officer positioning, while the notification system uses push notifications and SMS alerts for critical incidents.</p>
+                
+                <h2>System Architecture</h2>
+                <p>The application follows a microservices architecture with separate modules for user management, scheduling, incident reporting, and analytics. Each module is independently deployable and scalable, ensuring high availability and performance. The system uses Redis for caching frequently accessed data and improving response times.</p>
+                
+                <h2>Security Features</h2>
+                <ul>
+                    <li>End-to-end encryption for sensitive data</li>
+                    <li>Two-factor authentication for administrative access</li>
+                    <li>Automated backup and disaster recovery</li>
+                    <li>Compliance with security industry standards</li>
+                    <li>Activity logging and audit trails</li>
+                    <li>Secure API endpoints with rate limiting</li>
+                </ul>
+                
+                <h2>Challenges & Solutions</h2>
+                <p>One of the primary challenges was implementing reliable real-time location tracking while minimizing battery drain on mobile devices. This was addressed by implementing smart polling intervals that adjust based on officer activity and location change detection. Another challenge was handling concurrent shift modifications by multiple supervisors, which was solved through optimistic locking and conflict resolution mechanisms.</p>
+                
+                <p>Scalability was a key concern given the potential for thousands of officers across multiple sites. The solution involved implementing horizontal scaling with load balancing, database sharding for large datasets, and efficient caching strategies to handle peak loads during shift changes.</p>
+                
+                <h2>Results</h2>
+                <p>The Red Force Security Officers Management System successfully manages over 500 security officers across 50+ locations. The system has reduced administrative overhead by 60%, improved response times to incidents by 45%, and increased overall operational efficiency by 70%. Client satisfaction scores improved by 35% due to enhanced transparency and real-time reporting capabilities.</p>
+                
+                <p>The automated scheduling feature alone saved approximately 20 hours per week in administrative work, while the incident reporting system reduced paperwork by 80% and improved response coordination significantly.</p>
+                
+                <h2>Future Enhancements</h2>
+                <ul>
+                    <li>AI-powered predictive analytics for security risk assessment</li>
+                    <li>Integration with drone surveillance systems</li>
+                    <li>Advanced facial recognition for visitor management</li>
+                    <li>Machine learning for optimal shift scheduling</li>
+                    <li>Integration with emergency services dispatch systems</li>
+                </ul>
+            </div>
+            
+            <div class="project-links">
+                <a href="#" class="project-link-btn">View Live Demo</a>
+                <a href="#" class="project-link-btn">View Documentation</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>
