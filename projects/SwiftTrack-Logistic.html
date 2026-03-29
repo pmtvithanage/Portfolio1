@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SwiftTrack Logistic - Project Details</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<canvas id="galaxy"></canvas>
+
+	<div class="container">
+		<div class="project-detail">
+			<a href="../index.html#projects" class="back-btn">← Back to Projects</a>
+
+			<div class="project-header">
+				<h1>SwiftTrack Logistic</h1>
+				<div class="tech-stack">
+					<span class="tech-item">React</span>
+					<span class="tech-item">TypeScript</span>
+					<span class="tech-item">Node.js</span>
+					<span class="tech-item">Python</span>
+					<span class="tech-item">MongoDB</span>
+					<span class="tech-item">Microservices</span>
+				</div>
+			</div>
+
+			<div class="project-slideshow">
+				<div class="slideshow-container">
+					<div class="slide active">
+						<img src="../img/SwiftTrack-Logistic/img1.png" alt="SwiftTrack Logistic Dashboard">
+					</div>
+					<div class="slide">
+						<img src="../img/SwiftTrack-Logistic/img2.png" alt="SwiftTrack Logistic System Architecture">
+					</div>
+					<div class="slide">
+						<img src="../img/SwiftTrack-Logistic/img3.png" alt="SwiftTrack Logistic Service Flow">
+					</div>
+					<div class="slide">
+						<img src="../img/SwiftTrack-Logistic/img4.png" alt="SwiftTrack Logistic Monitoring View">
+					</div>
+				</div>
+				<div class="slideshow-dots">
+					<span class="dot active" onclick="currentSlide(0)"></span>
+					<span class="dot" onclick="currentSlide(1)"></span>
+					<span class="dot" onclick="currentSlide(2)"></span>
+					<span class="dot" onclick="currentSlide(3)"></span>
+				</div>
+			</div>
+
+			<div class="project-content">
+				<h2>Project Overview</h2>
+				<p>SwiftTrack Logistic is a distributed logistics and delivery management platform designed around microservices to coordinate orders, warehouse updates, route optimization, and customer/driver communication in real time. The platform is split into focused services and interfaces, allowing each part of the system to scale independently.</p>
+
+				<h2>Key Features</h2>
+				<ul>
+					<li>End-to-end order lifecycle tracking from placement to delivery</li>
+					<li>Route optimization service for efficient delivery planning</li>
+					<li>Warehouse management integration with status synchronization</li>
+					<li>Customer and driver apps with role-based authentication</li>
+					<li>Real-time notifications through WebSocket channels</li>
+					<li>Promotion and product service for catalog and offers management</li>
+					<li>Central API gateway for request routing and service communication</li>
+					<li>Location and map integration for geocoding and navigation workflows</li>
+				</ul>
+
+				<h2>Technical Implementation</h2>
+				<p>The frontend layer includes separate React TypeScript clients for customers and drivers, each tailored to their operational workflows. Requests are routed through an Express-based middleware/API gateway responsible for authentication, token validation, and forwarding calls to downstream services.</p>
+
+				<p>Core backend services are implemented using both Node.js and Python, combining REST endpoints, TCP communication, and asynchronous processing where needed. MongoDB is used as the shared persistence layer for product, order, and service state data, while WebSocket support enables live updates without manual refresh.</p>
+
+				<h2>Microservices in the Platform</h2>
+				<ul>
+					<li>ESB/API Gateway service for auth, orchestration, and WebSocket support</li>
+					<li>ROS route optimization service for delivery path decisions</li>
+					<li>WMS service for warehouse and inventory related status operations</li>
+					<li>Products service for product catalog and promotional offers</li>
+					<li>CMS integration service for communication/status exchange</li>
+				</ul>
+
+				<h2>Challenges & Solutions</h2>
+				<p>A major challenge was coordinating multiple protocols and service boundaries while keeping the user experience responsive. This was solved by introducing a central gateway and event-driven update paths so clients receive timely state changes even when operations span several services.</p>
+
+				<p>Another challenge was maintaining consistency across independent services. Clear API contracts, shared authentication logic, and well-defined responsibility boundaries improved reliability and reduced cross-service coupling.</p>
+
+				<h2>Results</h2>
+				<p>The result is a modular logistics platform that supports continuous growth: teams can evolve individual services without blocking others, and operational visibility remains high through centralized communication and real-time status updates.</p>
+
+				<h2>Future Enhancements</h2>
+				<ul>
+					<li>Advanced ETA prediction using historical delivery data</li>
+					<li>Queue-based event streaming for higher traffic resilience</li>
+					<li>Expanded observability dashboards for service-level metrics</li>
+					<li>Automated failover strategies for critical service endpoints</li>
+				</ul>
+			</div>
+
+			<div class="project-links">
+				<a href="#" class="project-link-btn">View Live Demo</a>
+				<a href="#" class="project-link-btn">View Documentation</a>
+			</div>
+		</div>
+	</div>
+
+	<script src="../script.js"></script>
+</body>
+</html>
