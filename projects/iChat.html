@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>iChat - Real-Time Chat App - Project Details</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<canvas id="galaxy"></canvas>
+
+	<div class="container">
+		<div class="project-detail">
+			<a href="../index.html#projects" class="back-btn">← Back to Projects</a>
+
+			<div class="project-header">
+				<h1>iChat - Real-Time Chat Application</h1>
+				<div class="tech-stack">
+					<span class="tech-item">Node.js</span>
+					<span class="tech-item">Express</span>
+					<span class="tech-item">Socket.IO</span>
+					<span class="tech-item">JavaScript</span>
+					<span class="tech-item">HTML</span>
+					<span class="tech-item">CSS</span>
+				</div>
+			</div>
+
+			<div class="project-slideshow">
+				<div class="slideshow-container">
+					<div class="slide active">
+						<img src="../img/iChat/image1.png" alt="iChat real-time chat interface">
+					</div>
+				</div>
+				<div class="slideshow-dots">
+					<span class="dot active" onclick="currentSlide(0)"></span>
+				</div>
+			</div>
+
+			<div class="project-content">
+				<h2>Project Overview</h2>
+				<p>iChat is a lightweight real-time messaging application built to demonstrate fast, event-driven communication on the web. The project focuses on delivering instant message exchange, live user activity signals, and a clean chat experience using a simple and scalable architecture.</p>
+
+				<h2>Key Features</h2>
+				<ul>
+					<li>Real-time messaging powered by Socket.IO</li>
+					<li>Live connected client count updates</li>
+					<li>Typing feedback to indicate user activity</li>
+					<li>Relative message timestamps for better context</li>
+					<li>Single shared chat room experience</li>
+					<li>Responsive and minimal interface for quick use</li>
+				</ul>
+
+				<h2>Technical Implementation</h2>
+				<p>The backend is implemented with Node.js and Express, serving static frontend assets and maintaining real-time socket connections. Socket.IO handles bidirectional communication between connected clients and the server, enabling immediate broadcast of chat updates.</p>
+
+				<p>On the frontend, vanilla JavaScript manages socket events, message rendering, typing indicators, and notification behavior. The application keeps the architecture intentionally simple, making it easy to extend with authentication, persistent storage, and room-based messaging.</p>
+
+				<h2>Socket Events</h2>
+				<ul>
+					<li><strong>client-total</strong>: broadcasts the number of active users</li>
+					<li><strong>message</strong>: emitted by a user when sending a message</li>
+					<li><strong>chat-message</strong>: relays incoming messages to other users</li>
+					<li><strong>feedback</strong>: shares typing activity with connected clients</li>
+				</ul>
+
+				<h2>Architecture</h2>
+				<p>The server tracks active sockets using an in-memory Set and emits updates on every connect/disconnect action. Messages are currently handled in-memory without database persistence, which keeps performance fast and setup simple for local development and demonstration deployments.</p>
+
+				<h2>Challenges & Solutions</h2>
+				<p>A key challenge was ensuring low-latency communication while maintaining a clean event model. This was solved by separating message and feedback events and using direct broadcast patterns for efficient message delivery.</p>
+
+				<p>Another challenge was keeping the application deployment-friendly. The server supports dynamic port binding through environment variables, which allows smooth deployment on platforms such as Render with minimal changes.</p>
+
+				<h2>Results</h2>
+				<p>The final application provides a stable and responsive chat experience with real-time updates across multiple clients. It is easy to run locally, straightforward to deploy, and serves as a strong foundation for future production-ready chat enhancements.</p>
+
+				<h2>Future Enhancements</h2>
+				<ul>
+					<li>Add authentication and user sessions</li>
+					<li>Persist chat history with a database</li>
+					<li>Support chat rooms and private messaging</li>
+					<li>Add message delivery and read receipts</li>
+					<li>Improve moderation and input validation controls</li>
+				</ul>
+			</div>
+
+			<div class="project-links">
+				<a href="https://github.com/pmtvithanage/iChat---Real-Time-Chat-App" target="_blank" rel="noopener noreferrer" class="project-link-btn">View Source Code</a>
+				<a href="https://github.com/pmtvithanage/iChat---Real-Time-Chat-App/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="project-link-btn">View Documentation</a>
+			</div>
+		</div>
+	</div>
+
+	<script src="../script.js"></script>
+</body>
+</html>
