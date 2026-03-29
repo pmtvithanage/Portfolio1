@@ -376,6 +376,60 @@ if (document.readyState === 'loading') {
 let slideIndex = 0;
 let slideInterval;
 
+function createImageLightbox() {
+    const existingLightbox = document.querySelector('.image-lightbox');
+    if (existingLightbox) {
+        return existingLightbox;
+    }
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'image-lightbox';
+    lightbox.innerHTML = `
+        <button class="image-lightbox-close" type="button" aria-label="Close image preview">&times;</button>
+        <img src="" alt="Project image preview">
+    `;
+
+    const closeLightbox = () => {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+    };
+
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox || event.target.classList.contains('image-lightbox-close')) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+            closeLightbox();
+        }
+    });
+
+    document.body.appendChild(lightbox);
+    return lightbox;
+}
+
+function initSlideshowImagePopup() {
+    const slideshowContainers = document.querySelectorAll('.slideshow-container');
+    if (slideshowContainers.length === 0) return;
+
+    const lightbox = createImageLightbox();
+    const lightboxImage = lightbox.querySelector('img');
+
+    slideshowContainers.forEach((container) => {
+        container.addEventListener('click', (event) => {
+            const clickedImage = event.target.closest('img');
+            if (!clickedImage) return;
+
+            lightboxImage.src = clickedImage.src;
+            lightboxImage.alt = clickedImage.alt || 'Project image preview';
+            lightbox.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+}
+
 function initSlideshow() {
     const slideshowContainer = document.querySelector('.slideshow-container');
     console.log('Initializing slideshow...', slideshowContainer);
@@ -389,10 +443,15 @@ function initSlideshow() {
     console.log('Found slides:', slides.length);
     
     if (slides.length === 0) return;
+
+    const dots = document.querySelectorAll('.dot');
+
+    // Ensure only one active slide/dot when page loads.
+    slides.forEach((slide) => slide.classList.remove('active'));
+    dots.forEach((dot) => dot.classList.remove('active'));
     
     // Make sure first slide is active
     slides[0].classList.add('active');
-    const dots = document.querySelectorAll('.dot');
     if (dots.length > 0) dots[0].classList.add('active');
     
     // Start auto-sliding
@@ -458,7 +517,11 @@ function resetSlideshowAutoSlide() {
 
 // Initialize slideshow when DOM is loaded
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSlideshow);
+    document.addEventListener('DOMContentLoaded', () => {
+        initSlideshowImagePopup();
+        initSlideshow();
+    });
 } else {
+    initSlideshowImagePopup();
     initSlideshow();
 }
