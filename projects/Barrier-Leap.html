@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barrier Leap - Project Details</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <canvas id="galaxy"></canvas>
+    
+    <div class="container">
+        <div class="project-detail">
+            <a href="../index.html#projects" class="back-btn">← Back to Projects</a>
+            
+            <div class="project-header">
+                <h1>Barrier Leap</h1>
+                <div class="tech-stack">
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">Express</span>
+                    <span class="tech-item">Canvas API</span>
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">CSS3</span>
+                </div>
+            </div>
+			<div class="project-slideshow">
+				<div class="slideshow-container">
+					<div class="slide active">
+						<img src="../img/Barrier-Leap/img1.png" alt="Barrier Leap game interface">
+					</div>
+					<div class="slide">
+						<img src="../img/Barrier-Leap/img2.png" alt="Barrier Leap game interface">
+					</div>
+				</div>
+				<div class="slideshow-dots">
+					<span class="dot active" onclick="currentSlide(0)"></span>
+					<span class="dot" onclick="currentSlide(1)"></span>
+				</div>
+			</div>          
+            <div class="project-content">
+                <h2>Project Overview</h2>
+                <p>Barrier Leap is an engaging 2D platformer game built with Node.js and vanilla JavaScript. Players navigate through increasingly challenging levels, collecting coins while jumping across moving platforms and avoiding themed obstacles. The game features a unique theme customization system that allows players to select barrier designs between levels.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Dynamic moving platforms with horizontal and vertical motion</li>
+                    <li>Four unique barrier themes: Classic (Spikes), Fire (Flames), Ice (Crystals), and Toxic (Hazard Stripes)</li>
+                    <li>Smooth physics engine with gravity and collision detection</li>
+                    <li>Collectible coin system with score tracking</li>
+                    <li>Multiple levels with progressive difficulty</li>
+                    <li>Theme selection popup between levels</li>
+                    <li>Responsive canvas-based rendering</li>
+                    <li>Keyboard controls: Arrow Keys to move, Space to jump</li>
+                    <li>Beautiful gradient UI with modern design</li>
+                    <li>Level completion tracking and final score display</li>
+                </ul>
+                
+                <h2>Technical Implementation</h2>
+                <p>The game is built with a custom physics engine using vanilla JavaScript with HTML5 Canvas for rendering. Node.js with Express.js serves the game on a local server, while all game logic, collision detection, and rendering happens client-side for smooth 60 FPS gameplay. The barrier themes are implemented using canvas drawing techniques with different visual styles for each theme type.</p>
+                
+                <h2>Challenges & Solutions</h2>
+                <p>One of the main challenges was implementing smooth collision detection for both static and moving platforms. This was solved by calculating precise collision boundaries and checking for overlaps on each frame. Another challenge was optimizing the rendering performance while maintaining visual quality, which was addressed by using efficient canvas operations and minimizing redraw areas.</p>
+                
+                <h2>Game Mechanics</h2>
+                <ul>
+                    <li><strong>Platforms:</strong> Static platforms form the basic level layout</li>
+                    <li><strong>Moving Platforms:</strong> Orange platforms move back and forth or up and down, requiring timing precision</li>
+                    <li><strong>Barriers:</strong> Colored obstacles with different themes that reset the player if touched</li>
+                    <li><strong>Coins:</strong> Yellow collectibles that increase score and are required to complete levels</li>
+                    <li><strong>Themes:</strong> Players choose between 4 unique barrier designs for each level</li>
+                </ul>
+                
+                <h2>Results</h2>
+                <p>Barrier Leap successfully demonstrates core game development concepts including physics simulation, collision detection, state management, and user interface design. The game runs smoothly on modern browsers with responsive controls and engaging gameplay that challenges players to master timing and platforming skills.</p>
+            </div>
+            
+            <div class="project-links">
+                <a href="http://localhost:3000" class="project-link-btn" target="_blank">Play Game Now</a>
+                <a href="https://github.com" class="project-link-btn" target="_blank">View Source Code</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../script.js"></script>
+</body>
+</html>
