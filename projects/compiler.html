@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>C Compiler with Control Flow Structures - Project Details</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<canvas id="galaxy"></canvas>
+
+	<div class="container">
+		<div class="project-detail">
+			<a href="../index.html#projects" class="back-btn">← Back to Projects</a>
+
+			<div class="project-header">
+				<h1>C Compiler with Control Flow Structures</h1>
+				<div class="tech-stack">
+					<span class="tech-item">C</span>
+					<span class="tech-item">GCC</span>
+					<span class="tech-item">Recursive Descent Parser</span>
+					<span class="tech-item">Compiler Design</span>
+					<span class="tech-item">Linux</span>
+				</div>
+			</div>
+
+			<div class="project-slideshow">
+				<div class="slideshow-container">
+					<div class="slide active">
+						<img src="../img/compiler/img1.png" alt="C Compiler architecture and parser design">
+					</div>
+					<div class="slide">
+						<img src="../img/compiler/img2.png" alt="Compiler execution and output">
+					</div>
+					<div class="slide">
+						<img src="../img/compiler/img3.png" alt="Parser grammar and syntax trees">
+					</div>
+                    <div class="slide">
+                        <img src="../img/compiler/img4.png" alt="Compiler optimization techniques">
+                    </div>
+				</div>
+				<div class="slideshow-dots">
+					<span class="dot active" onclick="currentSlide(0)"></span>
+					<span class="dot" onclick="currentSlide(1)"></span>
+					<span class="dot" onclick="currentSlide(2)"></span>
+					<span class="dot" onclick="currentSlide(3)"></span>
+				</div>
+			</div>
+
+			<div class="project-content">
+				<h2>Project Overview</h2>
+				<p>A feature-rich C compiler built from scratch using recursive descent parsing techniques. This project successfully implements a complete parsing and execution engine for a subset of the C language, with full support for control flow structures (if-else, while, for, do-while, switch-case) and comprehensive operator precedence handling.</p>
+
+				<p>The compiler demonstrates deep understanding of compiler theory, including tokenization, syntax analysis, semantic analysis, and runtime execution. It processes source code files and executes programs with correct control flow behavior.</p>
+
+				<h2>Key Features</h2>
+				<ul>
+					<li><strong>Control Flow Statements</strong>: if-else, while loops, for loops, do-while loops, and switch-case statements</li>
+					<li><strong>Operators</strong>: All comparison operators (==, !=, <, >, <=, >=), logical operators (&&, ||, !), and arithmetic operators (+, -, *, /, %)</li>
+					<li><strong>Variables & Declarations</strong>: Variable declarations with initialization, symbol table management, and declaration tracking</li>
+					<li><strong>Expression Evaluation</strong>: Full operator precedence with 7-level precedence hierarchy</li>
+					<li><strong>Semantic Analysis</strong>: Undeclared variable detection, type checking, and error reporting</li>
+					<li><strong>Break Statement Support</strong>: Proper break handling in loops and switch statements with correct control flow</li>
+					<li><strong>Nested Structures</strong>: Full support for arbitrarily nested control structures</li>
+					<li><strong>Large Program Support</strong>: Scalable token (5000) and symbol (500) limits for comprehensive programs</li>
+				</ul>
+
+				<h2>Technical Implementation</h2>
+				<p>The compiler is implemented in approximately 1000 lines of C code using a recursive descent parser architecture. The tokenizer converts source text into tokens, the parser builds an abstract representation, and the semantic analyzer validates correctness.</p>
+
+				<h3>Parsing Architecture</h3>
+				<p>The parser uses recursive descent with proper operator precedence handling through a multi-level expression parsing hierarchy:</p>
+				<ul>
+					<li><strong>Expression</strong> → LogicalOr (lowest precedence)</li>
+					<li><strong>LogicalOr</strong> → LogicalAnd</li>
+					<li><strong>LogicalAnd</strong> → Comparison</li>
+					<li><strong>Comparison</strong> → Additive</li>
+					<li><strong>Additive</strong> → Term</li>
+					<li><strong>Term</strong> → Factor (highest precedence)</li>
+				</ul>
+
+				<h3>Control Flow Implementation</h3>
+				<p>Control flow statements are implemented with proper scoping and execution semantics:</p>
+				<ul>
+					<li><strong>While Loops</strong>: Condition re-evaluation with state preservation across iterations</li>
+					<li><strong>For Loops</strong>: Three-part for(init; condition; increment) syntax with loop management</li>
+					<li><strong>If-Else Statements</strong>: Conditional branching with nested structure support</li>
+					<li><strong>Switch-Case Statements</strong>: Case matching with proper break handling to prevent fall-through</li>
+					<li><strong>Break Statement</strong>: Correct termination of loops and switch blocks</li>
+				</ul>
+
+				<h2>Grammar</h2>
+				<pre><code>Program       → Statement*
+Statement     → Declaration | Assignment | IfStatement | WhileStatement | ForStatement 
+                | SwitchStatement | BreakStatement | Block | PrintStatement
+Declaration   → 'int' Identifier '=' Expression ';'
+IfStatement   → 'if' '(' Expression ')' Block ('else' Block)?
+WhileStatement → 'while' '(' Expression ')' Block
+ForStatement  → 'for' '(' Assignment ';' Expression ';' Assignment ')' Block
+SwitchStatement → 'switch' '(' Expression ')' '{' (CaseLabel | DefaultLabel)* '}'
+CaseLabel     → 'case' Number ':' Statement* 'break' ';'
+DefaultLabel  → 'default' ':' Statement* 'break' ';'
+Expression    → LogicalOr ((TOKEN_ASSIGN) LogicalOr)*
+LogicalOr     → LogicalAnd (('||') LogicalAnd)*
+LogicalAnd    → Comparison (('&&') Comparison)*
+Comparison    → Additive (CompOp Additive)*
+Additive      → Term (AddOp Term)*
+Term          → Factor (MulOp Factor)*
+Factor        → [UnaryOp] (Primary)</code></pre>
+
+				<h2>Challenges & Solutions</h2>
+				<p><strong>Challenge 1: While Loop Execution</strong> - Initial implementation only executed the loop body once. Solution: Implemented proper loop re-evaluation by saving the condition position, evaluating it repeatedly, and executing the body until the condition becomes false.</p>
+
+				<p><strong>Challenge 2: Break Statement in Switch</strong> - Break statements were not preventing fall-through to subsequent cases and default blocks. Solution: Added a `switchDone` flag that properly exits the switch statement after a break is executed in a matched case, preventing any further case evaluation.</p>
+
+				<p><strong>Challenge 3: Operator Precedence</strong> - Ensuring correct evaluation order for complex expressions. Solution: Implemented a formal 7-level precedence hierarchy through separate parsing functions, with highest-precedence operations at the deepest recursion level.</p>
+
+				<p><strong>Challenge 4: Variable Scoping</strong> - Managing variable declarations and avoiding reuse across statement blocks. Solution: Implemented symbol table management with initialization tracking and declaration validation.</p>
+
+				<h2>Results</h2>
+				<p>The compiler successfully executes comprehensive programs with all control flow features. Created a 252-line test file demonstrating:</p>
+				<ul>
+					<li>Arithmetic expressions with correct precendence (e.g., `r = p + q * 2`)</li>
+					<li>All comparison operators in conditional statements</li>
+					<li>Nested if-else structures with multiple conditions</li>
+					<li>Multiple while loops with various patterns and loop counters</li>
+					<li>Switch-case statements with multiple cases and default behavior</li>
+					<li>Fibonacci sequence calculation via loop iteration</li>
+					<li>Complex sum and factorial computations</li>
+					<li>Logical operator combinations in compound conditions</li>
+				</ul>
+
+				<p>The test file compiles without errors and produces 41+ correct output values demonstrating all features working in concert.</p>
+
+				<h2>File Structure</h2>
+				<ul>
+					<li><strong>parser.c</strong> (984 lines) - Main compiler implementation with tokenizer, parser, and semantic analyzer</li>
+					<li><strong>test_simple_comprehensive.txt</strong> (252 lines) - Comprehensive test demonstrating all features</li>
+					<li><strong>test_while.txt, test_for.txt, test_switch.txt, etc.</strong> - Individual feature test files</li>
+					<li><strong>README.md</strong> - Complete documentation of compiler features and usage</li>
+				</ul>
+
+				<h2>Key Statistics</h2>
+				<ul>
+					<li><strong>Size</strong>: 984 lines of C code</li>
+					<li><strong>Token Types Supported</strong>: 40+ tokens including keywords, operators, and punctuation</li>
+					<li><strong>Parsing Functions</strong>: 15+ specialized parsing functions with proper separation of concerns</li>
+					<li><strong>Expression Precedence Levels</strong>: 7 levels with correct evaluation semantics</li>
+					<li><strong>Token Capacity</strong>: 5000 tokens (increased from 1000 for large program support)</li>
+					<li><strong>Symbol Capacity</strong>: 500 symbols (increased from 100)</li>
+					<li><strong>Test Coverage</strong>: 20+ test files covering individual features and comprehensive scenarios</li>
+				</ul>
+
+				<h2>Usage</h2>
+				<pre><code>$ gcc -o parser parser.c -Wall
+$ ./parser program.txt</code></pre>
+
+				<h2>Future Enhancements</h2>
+				<ul>
+					<li>Add function definitions and calls with parameter passing</li>
+					<li>Implement arrays and pointer operations</li>
+					<li>Add standard library functions (printf with format strings, strlen, etc.)</li>
+					<li>Support for struct and typedef declarations</li>
+					<li>Implement proper memory management and stack frame handling</li>
+					<li>Add optimization passes and intermediate code generation</li>
+					<li>Support for preprocessing directives (#include, #define)</li>
+					<li>Debugger integration with breakpoint support</li>
+				</ul>
+			</div>
+
+			<div class="project-links">
+				<a href="https://github.com/pmtvithanage/compiler-project" target="_blank" rel="noopener noreferrer" class="project-link-btn">View Source Code</a>
+				<a href="https://github.com/pmtvithanage/compiler-project/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="project-link-btn">View Documentation</a>
+			</div>
+		</div>
+	</div>
+
+	<script src="../script.js"></script>
+</body>
+</html>
